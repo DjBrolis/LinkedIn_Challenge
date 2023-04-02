@@ -1,0 +1,212 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_Browser" Type="InArgument(ui:UiElement)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1874,1877</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="50">
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>UiPath.UIAutomationNext.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers</x:String>
+      <x:String>UiPath.Platform.Triggers.Scope</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Triggers</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="80">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1154,1812" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1092,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1092,1497" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_Browser]" InteractionMode="DebuggerApi" ScopeGuid="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1058,1360" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:Boolean" Name="PeopleIsSelected" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'INPUT'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="996,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Text="[in_TransactionItem.SpecificContent(&quot;name&quot;).ToString]" Version="V3">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/feed/" DesignTimeRectangle="417, 88, 384, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='search-global-typeahead__input' aaname='' /&gt;" Guid="9e2f9a55-e6e2-41d6-a8df-7f90028fc1fe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYQAAAAmCAYAAADEHuyCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQkSURBVHhe7dtPSxtBGMfxvoMaC+n6gjzlTYh4EWkP0j+HphSKlSKFglQQQg6V0oKhwYt3LwHpoRcPVsnBKqIEbQ69iJfpPrOZzexmEpMma9b1O/AhZGcmenp+++wkDxSDwWAwGP6IBEKlUlGFQkF5nqdyuRwAIIOkxkutl5pvjzAQisWicyMAILuk9puhA0FSwkyurq2rk/ML9efvFQAgg6TGS603dd90CjoQpHUwYWA2NK3NaXXpuAYA6I8JBcmAMBDMmYHpDCi0AJB9UvOl9ksGhIEgF4QsuAudAQBgNEz9dwYCAOD+IBAAAFomA8GbmnJeBwB0RyAAADQCAQCgJR4I9d+n6sPHVbX4/KWamZ3Tr982q/q6a/0oEAgAMLhEA+HHzz01v/BUB4HL3q+6c9+wCAQAGFxigXDaaOowmF94or5ufg+Lv3QG8l4CQboFWRffO6zUBsLhtlqaXVHVQ8ccAIxZYoFQ/vxFF30p/q55EwqyzjU/jCAQdlWp1YmEyrsda28VgQAgxRILhLfv3usi3O2sQDoGmZd1rvlhePlHfuGdU6Wafd0PCAIBALpKLBDkUZEUfNecYe7cXXPDyE8+HH834EIgAEixxAJh8dmLvjqEV6/fOOeHoQNhdkPtOOZs+1srYSiJaEdxpXbK7bmOeVPca/Iq89bfq21E9s0sb6t9e89h9HHW0tZR+3MBYEwSCwRzRnDTGUK3+WF4U49VdVmKbfe7cR0GplALXaytou+/L9mFWhd56/Na6yOf4QtCxv67R6patgNB/q94eHT/PwHgtiQWCNIZSMGXbxrJ7w7sbxnJe3N3vLZe6tg7LPMto3YHEC+4cofeWYR1R9D1UVNwV28HhvOcouOaxbnHDww/vOgSAIxbYoEgJATMWUIvow6F+NdOTTCERTe8U3ewA8GxLhoIsVDR13o8qnLtIRAApESigSDkdwaf/IJvgkFe5b2wC+0oQ8H5OwT9aKZVrG8q3L7g/MAu3q4OgUAAkB2JB0Iv8VAY1W8SnIEQKcY3PNpxzvcRCH09MiIQAKTTWANBxEPBtWZQ+clcrOi27vitA+CgA4jeze9vbbT2dRZp842j3oHQz6EygQAgncYeCMKEwqg6hOBrp+2Q0RyHxabIO9fo4t2eK9X66RAC7cPsQFjsCQQAKZaKQBg15yMjAEBPBAIAQCMQAAAagQAA0DIZCACAwfUMhGZsMQAguzoCwfM8feHk/EIvuIxtAABkj9R8qf2SAWEgFAoFfXF1bT1ceBc6BYILAP6f1Hyp/ZIBYSBUKhV90YSC6RQAANkjNd6EgZAMCANBRrFYDCcBAPeD1H4zwkCQISkhrYM5U5iYmAAAZEw+n1fT09OqXC6rRqMRigSCjOvra9VsNtXZ2Zk6Pj5W9XpdHRwcAAAy7UD9A952gRHtivC0AAAAAElFTkSuQmCC" InformativeScreenshot="212976cf13ea19f17c0bd30b1884019d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) Feed | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="996,214" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </uix:NKeyboardShortcuts>
+            <ui:RetryScope DisplayName="Retry Scope" sap:VirtualizedContainerService.HintSize="996,737" sap2010:WorkflowViewState.IdRef="RetryScope_1">
+              <ui:RetryScope.ActivityBody>
+                <ActivityAction>
+                  <uix:NCheckState DisplayName="Check App State 'People' Is Selected" Exists="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="954,489" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                    <uix:NCheckState.IfExists>
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Sequence>
+                    </uix:NCheckState.IfExists>
+                    <uix:NCheckState.IfNotExists>
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,272" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'People'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                          <uix:NClick.Target>
+                            <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/search/results/all/?keywords=Jonas%20jonaitis&amp;origin=SWITCH_SEARCH_VERTICAL&amp;sid=!5q" DesignTimeRectangle="367, 144, 73, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'People'" FullSelectorArgument="&lt;webctrl parentid='search-reusables__filters-bar' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search-reusables__filters-bar' tag='BUTTON' type='button' class='artdeco-pill artdeco-pill--slate artdeco-pill--choice artdeco-pill--2 search-reusables__filter-pill-button&amp;#xA;     search-reusables__filter-pill-button' aaname='*People*' check:innerText='People' /&gt;" Guid="e944568e-6e05-462f-a820-f43aaea183f1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAAkCAYAAADM8rciAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARbSURBVGhD7ZrnS/RaEIfvf+s3UURUEEUsCIJ+EEVRREREwU9WrNgLFhQFO/YuVuxlLs+YszdvtiSx3F199wchu8nZnMyTmTlzTvYficu3Pg3t7e1NXl9frW+xrZeXF+vT5+Qb2tXVlWxtbcnc3JwMDQ1JV1eXtLS0/IittbVVOjs7ZXh4WO8fO25ubizLvMsztKOjI+2ot7dXpqenZXt7Wy4vL+Xp6clq8TPE/XLf3D92dHd3y/z8vBwfH1st3OUK7fr6WhYWFqSvr0/W19fl+fnZOvM7hD3Y1dPTI4uLi548LyI0vGtsbEyhfVU+iFVhH3Zi7+HhoXU0tMJC29vbU+/a2dmxjvwdwt7+/n7Z39+3jgQrJDQ8bGBgwJX4bxV2Ay6c/UHQyGGjo6N/nYc5hf2EaqgcFwSNZEhsxyXKAR5O/QHt5ORE89hvT/peBQdGVWc58gc06jCG37j+Ezyo4+wKQKPSp7r/yXXY7OysJCQkqB1fJXhQANtzWwDa5uamVsh+VF9frzdpttTUVKmqqoraIPId0BBcmHIZBaARmkwt/AhoKSkpUlNTI42NjVJdXS1JSUmSk5MTFXDfBQ0u8DEKQBsZGdE5mR8BLTMzUzY2NqwjosN0YmKiTpD/b30XNLgwyTcKQKMjv5PvUND4zDHOoYeHB712dna2GpSXlyeTk5O6pGSEVxLWhLdpQ3Fp8uv5+bkUFBRIeXm5lgBFRUXaDo+2XysUNC/9uwkurI4YKTQu0N7ergf8KBS0paUlSUtLk+bmZjWasE1PT1fPm5iYCMCZmZnR9mtra2pQVlaWdHR06HJTSUmJeivGcm8GGpAARllEW37DtUxd6YTmpX+vYlnJ6EuhMf0qKysLGLKysiIZGRnqNUa0yc3NldraWrm/v5e6ujptA2yji4sLhQOos7OzADTg2vMupQA5lQeEnNDc+vdTKQRBQ3T0kfDkJu0bAwEFIQ+CvfO82Qi1g4MDKSwsVNC3t7fWVd9lfyD28Ly7u7NaiALNz8+XiooKfQBOaG79268VSSHDE310IDCjJ08b9z89PbXOvj8IbpC5LIbbN+pC9p+Btru7qyFrvMYJza1/r3kt7EDw0ZLDmdPsIkSB2tDQEDIUHh8fNcdwjdXVVevoe6FNXiNECVUDjbDCO43MSN3W1qbfndDc+veqsCXHR4vbSNDwisrKSjWM/fj4uCZ6PIP+EIaRqJ0DAWE+ODiobQy05ORkKS4u1jZ4Nr+zg3RC89K/F4Utbj8yjXKDhlhqampqUgMxiD3hDAij5eVlKS0tVVAYiIdNTU0FwsdAI4wxmpCkHb+xF9FOaMhL/5EEj7DTKBSrE3YDzU/y/ipFnLCjWF0aihY0T0tDKBYXIaMFDQ6ui5AoFpe7owEN+z0vd6P4ixWfL1aM4q/wfL7CM8LjcFFi+7e/N8A+7MRetwiLCA3F/5YQLFdoRngddVz8DzA+oBkxc4j/1Sou34pD8y2RfwFZXCqtycNnGQAAAABJRU5ErkJggg==" InformativeScreenshot="404f579f027516f4b519f1eee8d174c3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) &amp;quot;Jonas jonaitis&amp;quot; | Search | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
+                          </uix:NClick.Target>
+                        </uix:NClick>
+                      </Sequence>
+                    </uix:NCheckState.IfNotExists>
+                    <uix:NCheckState.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/search/results/people/?keywords=Jonas%20jonaitis&amp;origin=SWITCH_SEARCH_VERTICAL&amp;sid=!5q" CvElementArea="153, 149, 21, 22" CvTextArea="101, 152, 51, 19" CvTextArgument="People" CvType="ArrowButton" DesignTimeRectangle="367, 144, 93, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'People'" FullSelectorArgument="&lt;webctrl id='ember1230' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BUTTON' type='button' class='artdeco-dropdown__trigger artdeco-dropdown__trigger--placement-bottom ember-view artdeco-pill artdeco-pill--slate artdeco-pill--choice artdeco-pill--2 search-reusables__filter-pill-button artdeco-pill--selected cursor-pointer' aaname='*People*' check:innerText='People' /&gt;" Guid="5ef80e73-f044-4590-960e-3d05f9b9f663" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAGEAAAAkCAYAAACZk1R8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAReSURBVGhD7VrNaxNBHPVUbx499k/wJB57qVA8eWqPigj2pKdCRQ8BIUVQqnhIT60eitEcbEEoFEuQUGhtoYuU+tVKiVIWommqjQ0hlOe+3Z3NZjP7lW5NUvfBg87kNzPd93bnNzO7pxCj7YjEhPfqV/Ov/wvqryIKf/bMUusIbcKP8h6erszh+sv7OP/oBs4mLuP07YvoGe3/78jr5vVTB+pBXahPWAQ2YeXbR1xNj0n/mZiNpE7UKyh8TajUqrg181g6WExvUjfq5wdPE97lP+Dcw2vSAWIGI/Wjjl5wNWH+8wrO3L0k7ThmOFJH6ukGqQl0LjYgWlJPtyeiyQTOYfEUdDykrrIc0WRCnISPl9TXiQYTuKySNYwZLZ3L1wYT4n3AvyF1tsMygTs9WYPuYRIzv3klmxiX/t5ZtO+sLRO45ZYFu/JFDqrZ1kKtCEWZxEBSEn/s7C4TqLeAZQLPPmTBrhQmHKhYym9o3MS2mfgr25PolbU5VnaXCdRbwDKBh1CyYFcKE75n6nXJCWQPWJlH6okt9p+wu0yg3gKWCTwNlAW7UmaCxvHvrCxi5oVRPvd8Fkt7Ym1cRamQw2iqHt+THEFC2YRaM0MYs7uG8elBK+bKelH/RcmNYGyriIpegqMvuQm+47vw3ptnZht3MEbWNgipt4BlQujjaKkJw0gVWKkiPdmP3owZU95AenEWKU3sEsu/c7iix9/UTDMEqmjCMya9pRoi1zQxTbGECaWDfZTUHKYWF5DdNYXdXcCQ3lezCf7je9PLiKMYQFJvgehMSA5jeDVvCKgLoxnCgNoGxmyJevQLxasi+1orv1o2RCnMok/0q3FIMURX15N6WZhQyU/bck0CaX2BYRjebEKA8a2+3Ckz4qgGkFITWp6OnKiKO3gailklg/JWE/e9mGbqU09D36bB1nSktbHHDX/YN+qzLDtN8B/f3pcX7UZEYQApnY5aTszm6ii7PofU/ANcsO66jCFCeQ2JyTu47GDfg6ObkNCXY+KudprgP769Lz9S/KgMIKWJueUlqiMx13kH6V0GFDGXcYgsOL+hT1+VnUzDdNS3ajxjqpLQy1ZO+DJRn46aVmJOEwKM30ZKl6gtb9ZcTejHheymkSMO96HwSWHi/ZSHuj1txiQw9ZMBksRc1e5g86kSJvCuV7cWkHqXg1I2aurGNCdm//HbR+lmLfSxRQATekYHMZBdxnbZXMloqFS1XfWSkXB1JhMY14QviSXqoSb0zkLDMtKajlYnMFMw8gCF/bhu3503mxBo/DZRemxBdOoBnltO6Fa6HuARnXqUfdJM8DzKJm514Eudk2QC9XWiyYROfL15UkwI/HqTiF/0R89QL/oF4k9eoiN1DP3JiwCdi7+8OBqpn9sTIOBpAsE5rBOTdTeQuslygBO+JghwWRV/CBCM1Mm5DPVCYBMEuNPjlptnHzyE4mlg6GPwE0JeN6+fOlAP6mLfCQdFaBNiRI/YhLYD+Au414a40/MthQAAAABJRU5ErkJggg==" InformativeScreenshot="4a4d5bb3bb3d367c5abe16740067104a.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* | Search | LinkedIn' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target CvType="ArrowButton" DesignTimeRectangle="432, 152, 16, 16" ElementType="Icon" FriendlyName="'SVG'" FullSelectorArgument="&lt;webctrl parentid='ember1230' tag='svg' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='ember1230' tag='svg' type='' class='mercado-match' aaname='    ' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABSSURBVDhPY2Atc/pPTTxqIOV41EAIbtq94D8hAFKDTS9OF+IzFJdhIIzXy9gMxWcYCBMMQ2RDCRkGwkRFCsggYgwDYaIMJAWPGkg5HuwGOv0HAPU27h8gVTivAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NCheckState.Target>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </uix:NCheckState>
+                </ActivityAction>
+              </ui:RetryScope.ActivityBody>
+              <ui:RetryScope.Condition>
+                <ActivityFunc x:TypeArguments="x:Boolean">
+                  <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True" Expression="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+                </ActivityFunc>
+              </ui:RetryScope.Condition>
+            </ui:RetryScope>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
