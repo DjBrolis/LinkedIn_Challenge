@@ -2,14 +2,14 @@
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
-    <x:Property Name="in_Browser" Type="InOutArgument(ui:UiElement)" />
     <x:Property Name="out_ShouldStop" Type="OutArgument(x:Boolean)" />
     <x:Property Name="io_ReportData" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="io_Browser" Type="InOutArgument(ui:UiElement)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1234,3493</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1142.6666666666667,3544</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="50">
@@ -130,14 +130,10 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1154,3428" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1152.888888888889,3479.1111111111113" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SearchResults" />
-      <Variable x:TypeArguments="x:Int32" Name="Count">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Int32" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="Count" />
       <Variable x:TypeArguments="x:String" Name="UserDecision" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -146,14 +142,14 @@
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1092,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1092,3113" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[in_Browser]" InteractionMode="DebuggerApi" ScopeGuid="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V2">
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1090.6666666666667,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1090.6666666666667,3154.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" ScopeGuid="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Working in Browser" sap:VirtualizedContainerService.HintSize="1058,2976" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Working in Browser" sap:VirtualizedContainerService.HintSize="1056.888888888889,3016.8888888888887" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="PeopleIsSelected" />
             </Sequence.Variables>
@@ -162,12 +158,12 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into Search" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="996,218" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Text="[in_TransactionItem.SpecificContent(&quot;name&quot;).ToString]" Version="V3">
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into Search" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="994.6666666666666,220.88888888888889" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Text="[in_TransactionItem.SpecificContent(&quot;name&quot;).ToString]" Version="V3">
               <uix:NTypeInto.Target>
                 <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/feed/" DesignTimeRectangle="417, 88, 384, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='search-global-typeahead__input' aaname='' /&gt;" Guid="9e2f9a55-e6e2-41d6-a8df-7f90028fc1fe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYQAAAAmCAYAAADEHuyCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQkSURBVHhe7dtPSxtBGMfxvoMaC+n6gjzlTYh4EWkP0j+HphSKlSKFglQQQg6V0oKhwYt3LwHpoRcPVsnBKqIEbQ69iJfpPrOZzexmEpMma9b1O/AhZGcmenp+++wkDxSDwWAwGP6IBEKlUlGFQkF5nqdyuRwAIIOkxkutl5pvjzAQisWicyMAILuk9puhA0FSwkyurq2rk/ML9efvFQAgg6TGS603dd90CjoQpHUwYWA2NK3NaXXpuAYA6I8JBcmAMBDMmYHpDCi0AJB9UvOl9ksGhIEgF4QsuAudAQBgNEz9dwYCAOD+IBAAAFomA8GbmnJeBwB0RyAAADQCAQCgJR4I9d+n6sPHVbX4/KWamZ3Tr982q/q6a/0oEAgAMLhEA+HHzz01v/BUB4HL3q+6c9+wCAQAGFxigXDaaOowmF94or5ufg+Lv3QG8l4CQboFWRffO6zUBsLhtlqaXVHVQ8ccAIxZYoFQ/vxFF30p/q55EwqyzjU/jCAQdlWp1YmEyrsda28VgQAgxRILhLfv3usi3O2sQDoGmZd1rvlhePlHfuGdU6Wafd0PCAIBALpKLBDkUZEUfNecYe7cXXPDyE8+HH834EIgAEixxAJh8dmLvjqEV6/fOOeHoQNhdkPtOOZs+1srYSiJaEdxpXbK7bmOeVPca/Iq89bfq21E9s0sb6t9e89h9HHW0tZR+3MBYEwSCwRzRnDTGUK3+WF4U49VdVmKbfe7cR0GplALXaytou+/L9mFWhd56/Na6yOf4QtCxv67R6patgNB/q94eHT/PwHgtiQWCNIZSMGXbxrJ7w7sbxnJe3N3vLZe6tg7LPMto3YHEC+4cofeWYR1R9D1UVNwV28HhvOcouOaxbnHDww/vOgSAIxbYoEgJATMWUIvow6F+NdOTTCERTe8U3ewA8GxLhoIsVDR13o8qnLtIRAApESigSDkdwaf/IJvgkFe5b2wC+0oQ8H5OwT9aKZVrG8q3L7g/MAu3q4OgUAAkB2JB0Iv8VAY1W8SnIEQKcY3PNpxzvcRCH09MiIQAKTTWANBxEPBtWZQ+clcrOi27vitA+CgA4jeze9vbbT2dRZp842j3oHQz6EygQAgncYeCMKEwqg6hOBrp+2Q0RyHxabIO9fo4t2eK9X66RAC7cPsQFjsCQQAKZaKQBg15yMjAEBPBAIAQCMQAAAagQAA0DIZCACAwfUMhGZsMQAguzoCwfM8feHk/EIvuIxtAABkj9R8qf2SAWEgFAoFfXF1bT1ceBc6BYILAP6f1Hyp/ZIBYSBUKhV90YSC6RQAANkjNd6EgZAMCANBRrFYDCcBAPeD1H4zwkCQISkhrYM5U5iYmAAAZEw+n1fT09OqXC6rRqMRigSCjOvra9VsNtXZ2Zk6Pj5W9XpdHRwcAAAy7UD9A952gRHtivC0AAAAAElFTkSuQmCC" InformativeScreenshot="212976cf13ea19f17c0bd30b1884019d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) Feed | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="996,179" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="994.6666666666666,180" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -175,12 +171,12 @@
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
             </uix:NKeyboardShortcuts>
-            <ui:RetryScope DisplayName="Retry App State 'People' Is Selected" sap:VirtualizedContainerService.HintSize="996,737" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2">
+            <ui:RetryScope DisplayName="Retry App State 'People' Is Selected" sap:VirtualizedContainerService.HintSize="994.6666666666666,742.2222222222222" sap2010:WorkflowViewState.IdRef="RetryScope_1" NumberOfRetries="2">
               <ui:RetryScope.ActivityBody>
                 <ActivityAction>
-                  <uix:NCheckState DisplayName="Check App State 'People' Is Selected" Exists="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="954,489" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="2" Version="V3">
+                  <uix:NCheckState DisplayName="Check App State 'People' Is Selected" Exists="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="952.8888888888889,492.8888888888889" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="2" Version="V3">
                     <uix:NCheckState.IfExists>
-                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="449.77777777777777,106.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_3">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -189,13 +185,13 @@
                       </Sequence>
                     </uix:NCheckState.IfExists>
                     <uix:NCheckState.IfNotExists>
-                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,272" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                      <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.77777777777777,273.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_4">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'People'" sap:VirtualizedContainerService.HintSize="388,157" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'People'" sap:VirtualizedContainerService.HintSize="387.55555555555554,158.22222222222223" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
                           <uix:NClick.Target>
                             <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/search/results/all/?keywords=Jonas%20jonaitis&amp;origin=SWITCH_SEARCH_VERTICAL&amp;sid=!5q" DesignTimeRectangle="367, 144, 73, 32" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'People'" FullSelectorArgument="&lt;webctrl parentid='search-reusables__filters-bar' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='search-reusables__filters-bar' tag='BUTTON' type='button' class='artdeco-pill artdeco-pill--slate artdeco-pill--choice artdeco-pill--2 search-reusables__filter-pill-button&amp;#xA;     search-reusables__filter-pill-button' aaname='*People*' check:innerText='People' /&gt;" Guid="e944568e-6e05-462f-a820-f43aaea183f1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAE0AAAAkCAYAAADM8rciAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAARbSURBVGhD7ZrnS/RaEIfvf+s3UURUEEUsCIJ+EEVRREREwU9WrNgLFhQFO/YuVuxlLs+YszdvtiSx3F199wchu8nZnMyTmTlzTvYficu3Pg3t7e1NXl9frW+xrZeXF+vT5+Qb2tXVlWxtbcnc3JwMDQ1JV1eXtLS0/IittbVVOjs7ZXh4WO8fO25ubizLvMsztKOjI+2ot7dXpqenZXt7Wy4vL+Xp6clq8TPE/XLf3D92dHd3y/z8vBwfH1st3OUK7fr6WhYWFqSvr0/W19fl+fnZOvM7hD3Y1dPTI4uLi548LyI0vGtsbEyhfVU+iFVhH3Zi7+HhoXU0tMJC29vbU+/a2dmxjvwdwt7+/n7Z39+3jgQrJDQ8bGBgwJX4bxV2Ay6c/UHQyGGjo6N/nYc5hf2EaqgcFwSNZEhsxyXKAR5O/QHt5ORE89hvT/peBQdGVWc58gc06jCG37j+Ezyo4+wKQKPSp7r/yXXY7OysJCQkqB1fJXhQANtzWwDa5uamVsh+VF9frzdpttTUVKmqqoraIPId0BBcmHIZBaARmkwt/AhoKSkpUlNTI42NjVJdXS1JSUmSk5MTFXDfBQ0u8DEKQBsZGdE5mR8BLTMzUzY2NqwjosN0YmKiTpD/b30XNLgwyTcKQKMjv5PvUND4zDHOoYeHB712dna2GpSXlyeTk5O6pGSEVxLWhLdpQ3Fp8uv5+bkUFBRIeXm5lgBFRUXaDo+2XysUNC/9uwkurI4YKTQu0N7ergf8KBS0paUlSUtLk+bmZjWasE1PT1fPm5iYCMCZmZnR9mtra2pQVlaWdHR06HJTSUmJeivGcm8GGpAARllEW37DtUxd6YTmpX+vYlnJ6EuhMf0qKysLGLKysiIZGRnqNUa0yc3NldraWrm/v5e6ujptA2yji4sLhQOos7OzADTg2vMupQA5lQeEnNDc+vdTKQRBQ3T0kfDkJu0bAwEFIQ+CvfO82Qi1g4MDKSwsVNC3t7fWVd9lfyD28Ly7u7NaiALNz8+XiooKfQBOaG79268VSSHDE310IDCjJ08b9z89PbXOvj8IbpC5LIbbN+pC9p+Btru7qyFrvMYJza1/r3kt7EDw0ZLDmdPsIkSB2tDQEDIUHh8fNcdwjdXVVevoe6FNXiNECVUDjbDCO43MSN3W1qbfndDc+veqsCXHR4vbSNDwisrKSjWM/fj4uCZ6PIP+EIaRqJ0DAWE+ODiobQy05ORkKS4u1jZ4Nr+zg3RC89K/F4Utbj8yjXKDhlhqampqUgMxiD3hDAij5eVlKS0tVVAYiIdNTU0FwsdAI4wxmpCkHb+xF9FOaMhL/5EEj7DTKBSrE3YDzU/y/ipFnLCjWF0aihY0T0tDKBYXIaMFDQ6ui5AoFpe7owEN+z0vd6P4ixWfL1aM4q/wfL7CM8LjcFFi+7e/N8A+7MRetwiLCA3F/5YQLFdoRngddVz8DzA+oBkxc4j/1Sou34pD8y2RfwFZXCqtycNnGQAAAABJRU5ErkJggg==" InformativeScreenshot="404f579f027516f4b519f1eee8d174c3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) &amp;quot;Jonas jonaitis&amp;quot; | Search | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                           </uix:NClick.Target>
@@ -222,19 +218,19 @@
               </ui:RetryScope.ActivityBody>
               <ui:RetryScope.Condition>
                 <ActivityFunc x:TypeArguments="x:Boolean">
-                  <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True PeopleIsSelected" Expression="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
+                  <ui:CheckTrue ErrorMessage="{x:Null}" DisplayName="Check True PeopleIsSelected" Expression="[PeopleIsSelected]" sap:VirtualizedContainerService.HintSize="333.77777777777777,88" sap2010:WorkflowViewState.IdRef="CheckTrue_1" />
                 </ActivityFunc>
               </ui:RetryScope.Condition>
             </ui:RetryScope>
-            <TryCatch DisplayName="Try To Get Search Results" sap:VirtualizedContainerService.HintSize="996,1398" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch DisplayName="Try To Get Search Results" sap:VirtualizedContainerService.HintSize="994.6666666666666,1418.2222222222222" sap2010:WorkflowViewState.IdRef="TryCatch_1">
               <TryCatch.Try>
-                <Sequence sap:VirtualizedContainerService.HintSize="648,1170" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                <Sequence DisplayName="Sequence To Get Search Results" sap:VirtualizedContainerService.HintSize="648.8888888888889,1184" sap2010:WorkflowViewState.IdRef="Sequence_22">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:FindChildren Children="[SearchResults]" DisplayName="Find Children of Search Results" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="586,107" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_CHILDREN">
+                  <ui:FindChildren Children="[SearchResults]" DisplayName="Find Children of Search Results" Filter="&lt;webctrl /&gt;" sap:VirtualizedContainerService.HintSize="586.6666666666666,107.11111111111111" sap2010:WorkflowViewState.IdRef="FindChildren_1" Scope="FIND_CHILDREN">
                     <ui:FindChildren.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="08c84dc6-8092-40ee-a3de-1c200a0daa05" InformativeScreenshot="9bc3b7cd3db873485e2088cd34b8aabe" Selector="&lt;webctrl class='reusable-search__entity-result-list list-style-none' tag='UL' /&gt;" TimeoutMS="3000">
                         <ui:Target.WaitForReady>
@@ -243,13 +239,13 @@
                       </ui:Target>
                     </ui:FindChildren.Target>
                   </ui:FindChildren>
-                  <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Goes through first page of results to check how many results have matching names." DisplayName="For Each Result Check Name" sap:VirtualizedContainerService.HintSize="586,912" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[SearchResults]">
+                  <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Goes through first page of results to check how many results have matching names." DisplayName="For Each Result Check Name" sap:VirtualizedContainerService.HintSize="586.6666666666666,921.7777777777778" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[SearchResults]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="ui:UiElement">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentItem" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,711" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552.8888888888889,717.7777777777778" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="CurrentItemChild" />
                             <Variable x:TypeArguments="x:String" Name="TempRetrivedName" />
@@ -259,7 +255,7 @@
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <ui:FindChildren Children="[CurrentItemChild]" DisplayName="Find Children" Filter="&lt;webctrl css-selector='span[class^=&amp;quot;entity-result__title-text&amp;quot;]&amp;gt;a&amp;gt;span&amp;gt;span:first-child'/&gt;" sap:VirtualizedContainerService.HintSize="510,87" sap2010:WorkflowViewState.IdRef="FindChildren_2" Scope="FIND_DESCENDANTS">
+                          <ui:FindChildren Children="[CurrentItemChild]" DisplayName="Find Children" Filter="&lt;webctrl css-selector='span[class^=&amp;quot;entity-result__title-text&amp;quot;]&amp;gt;a&amp;gt;span&amp;gt;span:first-child'/&gt;" sap:VirtualizedContainerService.HintSize="510.22222222222223,86.66666666666667" sap2010:WorkflowViewState.IdRef="FindChildren_2" Scope="FIND_DESCENDANTS">
                             <ui:FindChildren.Target>
                               <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[currentItem]" Id="8b7e5112-070d-42d5-ba6e-21e4c24b6618">
                                 <ui:Target.TimeoutMS>
@@ -271,16 +267,16 @@
                               </ui:Target>
                             </ui:FindChildren.Target>
                           </ui:FindChildren>
-                          <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="510,137" sap2010:WorkflowViewState.IdRef="NGetText_1" InUiElement="[CurrentItemChild.First]" TextString="[TempRetrivedName]" Version="V3" />
-                          <If Condition="[TempRetrivedName.ToLower.Trim = in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.toLower.Trim]" DisplayName="If Names Match" sap:VirtualizedContainerService.HintSize="510,319" sap2010:WorkflowViewState.IdRef="If_1">
+                          <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="510.22222222222223,139.11111111111111" sap2010:WorkflowViewState.IdRef="NGetText_1" InUiElement="[CurrentItemChild.First]" TextString="[TempRetrivedName]" Version="V3" />
+                          <If Condition="[TempRetrivedName.ToLower.Trim = in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.toLower.Trim]" DisplayName="If Names Match" sap:VirtualizedContainerService.HintSize="510.22222222222223,323.1111111111111" sap2010:WorkflowViewState.IdRef="If_1">
                             <If.Then>
-                              <Sequence sap:VirtualizedContainerService.HintSize="476,169" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                              <Sequence sap:VirtualizedContainerService.HintSize="476.44444444444446,171.55555555555554" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <Assign sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_1">
+                                <Assign DisplayName="Assign Results Count" sap:VirtualizedContainerService.HintSize="433.77777777777777,82.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_1">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
                                   </Assign.To>
@@ -306,7 +302,7 @@
                 </Sequence>
               </TryCatch.Try>
               <TryCatch.Catches>
-                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="652,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="652.4444444444445,22.666666666666668" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -317,7 +313,7 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                     </ActivityAction.Argument>
-                    <Assign DisplayName="Assign Count For 0 Results" sap:VirtualizedContainerService.HintSize="434,81" sap2010:WorkflowViewState.IdRef="Assign_7">
+                    <Assign DisplayName="Assign Count For 0 Results" sap:VirtualizedContainerService.HintSize="433.77777777777777,83.11111111111111" sap2010:WorkflowViewState.IdRef="Assign_7">
                       <Assign.To>
                         <OutArgument x:TypeArguments="x:Int32">[Count]</OutArgument>
                       </Assign.To>
@@ -329,7 +325,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
-            <Flowchart sap2010:Annotation.AnnotationText="This flowchart manages how RPA should act on different search results scenarios. When only one result is found ir progresses automatically, but when 0 or &gt;1 is found, then it asks for user input" sap:VirtualizedContainerService.HintSize="996,169" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart sap2010:Annotation.AnnotationText="This flowchart manages how RPA should act on different search results scenarios. When only one result is found ir progresses automatically, but when 0 or &gt;1 is found, then it asks for user input" sap:VirtualizedContainerService.HintSize="994.6666666666666,180.44444444444446" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="x:String" Name="CurrentURL" />
                 <Variable x:TypeArguments="x:Boolean" Name="ProfilePageOpen" />
@@ -338,7 +334,7 @@
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                   <av:Point x:Key="ShapeLocation">490,2.5</av:Point>
-                  <av:Size x:Key="ShapeSize">60,75</av:Size>
+                  <av:Size x:Key="ShapeSize">60,75.11111111111111</av:Size>
                   <av:PointCollection x:Key="ConnectorLocation">520,77.5 520,106.5 525.5,106.5</av:PointCollection>
                   <x:Double x:Key="Width">1131.5</x:Double>
                   <x:Double x:Key="Height">923.06</x:Double>
@@ -348,17 +344,17 @@
               <Flowchart.StartNode>
                 <x:Reference>__ReferenceID11</x:Reference>
               </Flowchart.StartNode>
-              <FlowSwitch x:TypeArguments="x:Int32" x:Name="__ReferenceID11" DisplayName="Search Results" Expression="[Count]" sap:VirtualizedContainerService.HintSize="81,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
+              <FlowSwitch x:TypeArguments="x:Int32" x:Name="__ReferenceID11" DisplayName="Search Results" Expression="[Count]" sap:VirtualizedContainerService.HintSize="80,87.11111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_1">
                 <FlowSwitch.Default>
                   <FlowStep x:Name="__ReferenceID6">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <av:Point x:Key="ShapeLocation">270,244</av:Point>
-                        <av:Size x:Key="ShapeSize">200,52</av:Size>
-                        <av:PointCollection x:Key="ConnectorLocation">370,296 370,370 350,370</av:PointCollection>
+                        <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
+                        <av:PointCollection x:Key="ConnectorLocation">370,297.3333333333333 370,370.6666666666667 350,370.6666666666667</av:PointCollection>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input for Many Matches" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Multiple persons with this name were found. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results">
+                    <ui:InputDialog Options="{x:Null}" DisplayName="Input for Many Matches" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="Multiple persons with this name were found. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results" Title="Please select">
                       <ui:InputDialog.Result>
                         <OutArgument x:TypeArguments="x:String">[UserDecision]</OutArgument>
                       </ui:InputDialog.Result>
@@ -372,21 +368,21 @@
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <av:Point x:Key="ShapeLocation">485,106.5</av:Point>
-                    <av:Size x:Key="ShapeSize">81,87</av:Size>
+                    <av:Size x:Key="ShapeSize">80,87.11111111111111</av:Size>
                     <av:PointCollection x:Key="0Connector">485,150 130,150 130,243.99999999999997</av:PointCollection>
                     <av:PointCollection x:Key="Default">525.5,193.5 525.5,223.5 370,223.5 370,244</av:PointCollection>
-                    <av:PointCollection x:Key="1Connector">566,171.75 596,171.75 596,250 760,250</av:PointCollection>
+                    <av:PointCollection x:Key="1Connector">565,171.83333333333334 595,171.83333333333334 595,250.66666666666666 760,250.66666666666666</av:PointCollection>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
                 <FlowStep x:Key="0" x:Name="__ReferenceID5">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">30,243.99999999999997</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">130,296 130,370 150,370</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">130,297.3333333333333 130,370.6666666666667 150,370.6666666666667</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input For No Matches" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Unfortunatelly person with exact name was not found. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results">
+                  <ui:InputDialog Options="{x:Null}" DisplayName="Input For No Matches" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="InputDialog_4" IsPassword="False" Label="Unfortunatelly person with exact name was not found. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results" Title="Please select">
                     <ui:InputDialog.Result>
                       <OutArgument x:TypeArguments="x:String">[UserDecision]</OutArgument>
                     </ui:InputDialog.Result>
@@ -396,11 +392,11 @@
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">150,344</av:Point>
-                          <av:Size x:Key="ShapeSize">200,52</av:Size>
-                          <av:PointCollection x:Key="ConnectorLocation">250,396 250,426 253.5,426 253.5,436.5</av:PointCollection>
+                          <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">250,397.3333333333333 250,427.3333333333333 253.66666666666666,427.3333333333333 253.66666666666666,436.5</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:LogMessage DisplayName="Log User Decision" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;User Selected: &quot; + UserDecision]">
+                      <ui:LogMessage DisplayName="Log User Decision" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;User Selected: &quot; + UserDecision]">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -408,25 +404,25 @@
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:LogMessage>
                       <FlowStep.Next>
-                        <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID2}" x:Name="__ReferenceID0" DisplayName="User Decision" Expression="[UserDecision]" sap:VirtualizedContainerService.HintSize="77,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
+                        <FlowSwitch x:TypeArguments="x:String" Default="{x:Reference __ReferenceID2}" x:Name="__ReferenceID0" DisplayName="User Decision" Expression="[UserDecision]" sap:VirtualizedContainerService.HintSize="77.33333333333333,87.11111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_2">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">215,436.5</av:Point>
-                              <av:Size x:Key="ShapeSize">77,87</av:Size>
-                              <av:PointCollection x:Key="Select a person from current search resultsConnector">292,458.25 380,458.25 380,350 410,350</av:PointCollection>
+                              <av:Size x:Key="ShapeSize">77.33333333333333,87.11111111111111</av:Size>
+                              <av:PointCollection x:Key="Select a person from current search resultsConnector">292.3333333333333,458.27777777777777 322.3333333333333,458.27777777777777 322.3333333333333,410 440,410</av:PointCollection>
                               <av:PointCollection x:Key="Continue with another nameConnector">215,480 110,480 110,574</av:PointCollection>
                               <av:PointCollection x:Key="Default">234.25,523.5 234.25,600 210,600</av:PointCollection>
-                              <av:PointCollection x:Key="Stop RPA and generate reportConnector">253.5,523.5 253.5,710 310,710</av:PointCollection>
+                              <av:PointCollection x:Key="Stop RPA and generate reportConnector">253.66666666666666,523.6111111111111 253.66666666666666,711.5 310,711.5</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowStep x:Key="Continue with another name" x:Name="__ReferenceID2">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">10,574</av:Point>
-                                <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <ui:LogMessage DisplayName="Log Go For Next name" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Going for another case&quot;]">
+                            <ui:LogMessage DisplayName="Log Go For Next name" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Going for another case&quot;]">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -438,10 +434,10 @@
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <av:Point x:Key="ShapeLocation">310,669.5</av:Point>
-                                <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                <av:Size x:Key="ShapeSize">200,84</av:Size>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <Sequence DisplayName="Decision To Stop RPA" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                            <Sequence DisplayName="Decision To Stop RPA" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_16">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -460,12 +456,12 @@
                           <FlowStep x:Key="Select a person from current search results" x:Name="__ReferenceID9">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">410,324</av:Point>
-                                <av:Size x:Key="ShapeSize">200,52</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">610,350 676,350 676,486.5</av:PointCollection>
+                                <av:Point x:Key="ShapeLocation">440,383.3333333333333</av:Point>
+                                <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">640,410 676.1111111111111,410 676.1111111111111,486.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                            <uix:NCheckState DisplayName="Check Profile Page Open" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                            <uix:NCheckState DisplayName="Check Profile Page Open" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="NCheckState_3" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
                               <uix:NCheckState.IfExists>
                                 <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="496,197" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                   <sap:WorkflowViewStateService.ViewState>
@@ -505,13 +501,13 @@
                               </uix:NCheckState.Target>
                             </uix:NCheckState>
                             <FlowStep.Next>
-                              <FlowSwitch x:TypeArguments="x:Boolean" Default="{x:Reference __ReferenceID1}" x:Name="__ReferenceID8" DisplayName="Page Opened?" Expression="[ProfilePageOpen]" sap:VirtualizedContainerService.HintSize="82,87" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_3">
+                              <FlowSwitch x:TypeArguments="x:Boolean" Default="{x:Reference __ReferenceID1}" x:Name="__ReferenceID8" DisplayName="Page Opened?" Expression="[ProfilePageOpen]" sap:VirtualizedContainerService.HintSize="82.22222222222223,87.11111111111111" sap2010:WorkflowViewState.IdRef="FlowSwitch`1_3">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">635,486.5</av:Point>
-                                    <av:Size x:Key="ShapeSize">82,87</av:Size>
+                                    <av:Size x:Key="ShapeSize">82.22222222222223,87.11111111111111</av:Size>
                                     <av:PointCollection x:Key="Default">635,551.75 605,551.75 605,560 560,560</av:PointCollection>
-                                    <av:PointCollection x:Key="TrueConnector">717,530 760,530</av:PointCollection>
+                                    <av:PointCollection x:Key="TrueConnector">717.2222222222222,530.0555555555555 747.2222222222222,530.0555555555555 747.2222222222222,531.5 760,531.5</av:PointCollection>
                                     <av:PointCollection x:Key="FalseConnector">635,530 460,530 460,534</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -519,10 +515,10 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">760,489.5</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,81</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,84</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="Read Person Page" sap:VirtualizedContainerService.HintSize="200,81" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                  <Sequence DisplayName="Read Person Page" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_13">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
                                       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SkillsElementsList" />
@@ -616,11 +612,11 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">360,534</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,52</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
                                       <av:PointCollection x:Key="ConnectorLocation">360,560 272.75,560 272.75,523.5</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input for Not Selected Result" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Person profile page not detected. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results">
+                                  <ui:InputDialog Options="{x:Null}" DisplayName="Input for Not Selected Result" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Person profile page not detected. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results" Title="Please select">
                                     <ui:InputDialog.Result>
                                       <OutArgument x:TypeArguments="x:String">[UserDecision]</OutArgument>
                                     </ui:InputDialog.Result>
@@ -641,11 +637,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">760,224</av:Point>
-                      <av:Size x:Key="ShapeSize">200,52</av:Size>
-                      <av:PointCollection x:Key="ConnectorLocation">860,276 860,489.5</av:PointCollection>
+                      <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">860,277.3333333333333 860,489.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'audrius grigaliunas'" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'audrius grigaliunas'" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/search/results/people/?keywords=audrius%20grigaliunas&amp;origin=SWITCH_SEARCH_VERTICAL&amp;sid=*%40J" CvTextArgument="audrius grigaliunas ." CvType="Text" DesignTimeRectangle="443, 363, 138, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'audrius grigaliunas'" FullSelectorArgument="&lt;webctrl aaname='audrius grigaliunas' tag='SPAN' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl aaname='&quot; + in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.Trim +&quot;' tag='SPAN' type='' class='' check:innerText='&quot; + in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.Trim +&quot;' /&gt;&quot;]" Guid="435feaa0-1325-4e1c-8d1f-9c2cadae231b" ImageBase64="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" InformativeScreenshot="0e8fd59f84eb9b7eb171d11627630233.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* | Search | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                     </uix:NClick.Target>
