@@ -130,10 +130,14 @@
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1152.888888888889,3479.1111111111113" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1152.888888888889,3614.222222222222" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SearchResults" />
-      <Variable x:TypeArguments="x:Int32" Default="0" Name="Count" />
+      <Variable x:TypeArguments="x:Int32" Name="Count">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" Name="UserDecision" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
@@ -143,13 +147,13 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1090.6666666666667,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1090.6666666666667,3154.6666666666665" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" ScopeGuid="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Never" DisplayName="Use Application/Browser" sap:VirtualizedContainerService.HintSize="1090.6666666666667,3289.777777777778" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InUiElement="[io_Browser]" InteractionMode="DebuggerApi" ScopeGuid="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Working in Browser" sap:VirtualizedContainerService.HintSize="1056.888888888889,3016.8888888888887" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Working in Browser" sap:VirtualizedContainerService.HintSize="1056.888888888889,3152" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Boolean" Name="PeopleIsSelected" />
             </Sequence.Variables>
@@ -163,7 +167,7 @@
                 <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/feed/" DesignTimeRectangle="417, 88, 384, 34" DesignTimeScaleFactor="1" ElementType="InputBox" FriendlyName="'INPUT'" FullSelectorArgument="&lt;webctrl tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='search-global-typeahead__input' aaname='' /&gt;" Guid="9e2f9a55-e6e2-41d6-a8df-7f90028fc1fe" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAYQAAAAmCAYAAADEHuyCAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQkSURBVHhe7dtPSxtBGMfxvoMaC+n6gjzlTYh4EWkP0j+HphSKlSKFglQQQg6V0oKhwYt3LwHpoRcPVsnBKqIEbQ69iJfpPrOZzexmEpMma9b1O/AhZGcmenp+++wkDxSDwWAwGP6IBEKlUlGFQkF5nqdyuRwAIIOkxkutl5pvjzAQisWicyMAILuk9puhA0FSwkyurq2rk/ML9efvFQAgg6TGS603dd90CjoQpHUwYWA2NK3NaXXpuAYA6I8JBcmAMBDMmYHpDCi0AJB9UvOl9ksGhIEgF4QsuAudAQBgNEz9dwYCAOD+IBAAAFomA8GbmnJeBwB0RyAAADQCAQCgJR4I9d+n6sPHVbX4/KWamZ3Tr982q/q6a/0oEAgAMLhEA+HHzz01v/BUB4HL3q+6c9+wCAQAGFxigXDaaOowmF94or5ufg+Lv3QG8l4CQboFWRffO6zUBsLhtlqaXVHVQ8ccAIxZYoFQ/vxFF30p/q55EwqyzjU/jCAQdlWp1YmEyrsda28VgQAgxRILhLfv3usi3O2sQDoGmZd1rvlhePlHfuGdU6Wafd0PCAIBALpKLBDkUZEUfNecYe7cXXPDyE8+HH834EIgAEixxAJh8dmLvjqEV6/fOOeHoQNhdkPtOOZs+1srYSiJaEdxpXbK7bmOeVPca/Iq89bfq21E9s0sb6t9e89h9HHW0tZR+3MBYEwSCwRzRnDTGUK3+WF4U49VdVmKbfe7cR0GplALXaytou+/L9mFWhd56/Na6yOf4QtCxv67R6patgNB/q94eHT/PwHgtiQWCNIZSMGXbxrJ7w7sbxnJe3N3vLZe6tg7LPMto3YHEC+4cofeWYR1R9D1UVNwV28HhvOcouOaxbnHDww/vOgSAIxbYoEgJATMWUIvow6F+NdOTTCERTe8U3ewA8GxLhoIsVDR13o8qnLtIRAApESigSDkdwaf/IJvgkFe5b2wC+0oQ8H5OwT9aKZVrG8q3L7g/MAu3q4OgUAAkB2JB0Iv8VAY1W8SnIEQKcY3PNpxzvcRCH09MiIQAKTTWANBxEPBtWZQ+clcrOi27vitA+CgA4jeze9vbbT2dRZp842j3oHQz6EygQAgncYeCMKEwqg6hOBrp+2Q0RyHxabIO9fo4t2eK9X66RAC7cPsQFjsCQQAKZaKQBg15yMjAEBPBAIAQCMQAAAagQAA0DIZCACAwfUMhGZsMQAguzoCwfM8feHk/EIvuIxtAABkj9R8qf2SAWEgFAoFfXF1bT1ceBc6BYILAP6f1Hyp/ZIBYSBUKhV90YSC6RQAANkjNd6EgZAMCANBRrFYDCcBAPeD1H4zwkCQISkhrYM5U5iYmAAAZEw+n1fT09OqXC6rRqMRigSCjOvra9VsNtXZ2Zk6Pj5W9XpdHRwcAAAy7UD9A952gRHtivC0AAAAAElFTkSuQmCC" InformativeScreenshot="212976cf13ea19f17c0bd30b1884019d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(3) Feed | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
               </uix:NTypeInto.Target>
             </uix:NTypeInto>
-            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="994.6666666666666,180" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
+            <uix:NKeyboardShortcuts ActivateBefore="True" ClickBeforeMode="None" DelayBefore="0.5" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="994.6666666666666,180" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" Shortcuts="[d(hk)][k(Enter)][u(hk)]" Version="V3">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -248,7 +252,7 @@
                         <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552.8888888888889,717.7777777777778" sap2010:WorkflowViewState.IdRef="Sequence_6">
                           <Sequence.Variables>
                             <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="CurrentItemChild" />
-                            <Variable x:TypeArguments="x:String" Name="TempRetrivedName" />
+                            <Variable x:TypeArguments="x:String" Name="TempRetrievedName" />
                           </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -267,8 +271,8 @@
                               </ui:Target>
                             </ui:FindChildren.Target>
                           </ui:FindChildren>
-                          <uix:NGetText DisplayName="Get Text" sap:VirtualizedContainerService.HintSize="510.22222222222223,139.11111111111111" sap2010:WorkflowViewState.IdRef="NGetText_1" InUiElement="[CurrentItemChild.First]" TextString="[TempRetrivedName]" Version="V3" />
-                          <If Condition="[TempRetrivedName.ToLower.Trim = in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.toLower.Trim]" DisplayName="If Names Match" sap:VirtualizedContainerService.HintSize="510.22222222222223,323.1111111111111" sap2010:WorkflowViewState.IdRef="If_1">
+                          <uix:NGetText DisplayName="Get Text - Person Name From Search Results" sap:VirtualizedContainerService.HintSize="510.22222222222223,139.11111111111111" sap2010:WorkflowViewState.IdRef="NGetText_1" InUiElement="[CurrentItemChild.First]" TextString="[TempRetrievedName]" Version="V3" />
+                          <If Condition="[TempRetrievedName.ToLower.Trim = in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.toLower.Trim]" DisplayName="If Names Match" sap:VirtualizedContainerService.HintSize="510.22222222222223,323.1111111111111" sap2010:WorkflowViewState.IdRef="If_1">
                             <If.Then>
                               <Sequence sap:VirtualizedContainerService.HintSize="476.44444444444446,171.55555555555554" sap2010:WorkflowViewState.IdRef="Sequence_7">
                                 <sap:WorkflowViewStateService.ViewState>
@@ -325,6 +329,7 @@
                 </Catch>
               </TryCatch.Catches>
             </TryCatch>
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="994.6666666666666,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;People search completed&quot;]" />
             <Flowchart sap2010:Annotation.AnnotationText="This flowchart manages how RPA should act on different search results scenarios. When only one result is found ir progresses automatically, but when 0 or &gt;1 is found, then it asks for user input" sap:VirtualizedContainerService.HintSize="994.6666666666666,180.44444444444446" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="x:String" Name="CurrentURL" />
@@ -506,8 +511,8 @@
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <av:Point x:Key="ShapeLocation">635,486.5</av:Point>
                                     <av:Size x:Key="ShapeSize">82.22222222222223,87.11111111111111</av:Size>
-                                    <av:PointCollection x:Key="Default">635,551.75 605,551.75 605,560 560,560</av:PointCollection>
-                                    <av:PointCollection x:Key="TrueConnector">717.2222222222222,530.0555555555555 747.2222222222222,530.0555555555555 747.2222222222222,531.5 760,531.5</av:PointCollection>
+                                    <av:PointCollection x:Key="Default">635,551.8333333333334 605,551.8333333333334 605,560.6666666666666 560,560.6666666666666</av:PointCollection>
+                                    <av:PointCollection x:Key="TrueConnector">717.2222222222222,508.27777777777777 747.2222222222222,508.27777777777777 747.2222222222222,587.9444444444445 760,587.9444444444445</av:PointCollection>
                                     <av:PointCollection x:Key="FalseConnector">635,530 460,530 460,534</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
@@ -515,105 +520,141 @@
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">760,489.5</av:Point>
-                                      <av:Size x:Key="ShapeSize">200,84</av:Size>
+                                      <av:Size x:Key="ShapeSize">200,196.88888888888889</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence DisplayName="Read Person Page" sap:VirtualizedContainerService.HintSize="200,84" sap2010:WorkflowViewState.IdRef="Sequence_13">
-                                    <Sequence.Variables>
-                                      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
-                                      <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SkillsElementsList" />
-                                    </Sequence.Variables>
+                                  <TryCatch sap2010:Annotation.AnnotationText="The Skills Page greatly varies with different persons skills set, so for easier management all cases where reading of &quot;tools &amp; techonologies&quot; skills is not possible, RPA will catch this error as one and will not differenciate." DisplayName="Try To Read Person Page" sap:VirtualizedContainerService.HintSize="200,196.88888888888889" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Show all skills'" sap:VirtualizedContainerService.HintSize="494,157" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="3" Version="V3">
-                                      <uix:NClick.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/vilmamaciunaite/" CvTextArgument="Show all 44 skills" CvType="Text" DesignTimeRectangle="78, 754, 804, 29" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Show all 44 skills'" FullSelectorArgument="&lt;webctrl css-selector='div[id=&amp;quot;skills&amp;quot;] ~ div[class=&amp;quot;pvs-list__outer-container&amp;quot;] &amp;gt; div[class=&amp;quot;pvs-list__footer-wrapper&amp;quot;]' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                Show all 44 skills                              *' parentid='ember2175' tag='A' type='' class='optional-action-target-wrapper artdeco-button artdeco-button--tertiary artdeco-button--standard artdeco-button--2 artdeco-button--muted &amp;#xA;      inline-flex justify-center full-width align-items-center artdeco-button--fluid&amp;#xA;      &amp;#xA;      ' check:innerText='Show all 44 skills' /&gt;" Guid="3633fb48-5be0-4512-91f1-8d06fd9979e4" ImageBase64="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" InformativeScreenshot="ad06cbd52b161d2099f3c4116cf5a0b3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(10) Vilma Mačiūnaitė-Uckevičienė | LinkedIn' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                                      </uix:NClick.Target>
-                                    </uix:NClick>
-                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Tools &amp; Technologies'" sap:VirtualizedContainerService.HintSize="494,157" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="10" Version="V3">
-                                      <uix:NClick.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/vilmamaciunaite/details/skills/" CvElementArea="329, 274, 181, 35" CvTextArea="341, 284, 154, 19" CvTextArgument="Tools &amp; Technologies" CvType="Button" DesignTimeRectangle="329, 274, 179, 34" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'Tools &amp; Technologies'" FullSelectorArgument="&lt;webctrl id='ember2377' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2377' tag='BUTTON' type='button' class='ml2 white-space-nowrap artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view' aaname='  Tools &amp;amp; Technologies ' check:innerText='Tools &amp;amp; Technologies' /&gt;" Guid="76f7034a-b180-434a-8458-81fc5c177bde" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAALQAAAAkCAYAAAAgqxBxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAh4SURBVHhe7Zz3b5M9EMffv5bfUCvEqIpAZYqNoKLsWaaYAkoZZYrZij3LFFPsvRE99Lk3FznGGU+btKG6r/SoSuLY57uP7bOfp/lPXK5hJAfaNayUGeiPHz/Kw4cP5cqVK3Ly5Enp6uqSPXv2yO7du/3yq98XDMESTMEWjMFaVlUM9KtXr7ShQ4cOSXd3tzx48EDevXsnP378kL6+vlwpl6t/giFYginYgjFYgznYq1Rlgf706ZPcuHFDjhw5Irdv39ZGXa7BEKzBHOzBICyWU0mgGRlnz56VS5cuOciuIRPswSAslputiwL97NkzOX78uE7/Llc9CBZhEjaLKQn0y5cv5dixY/LkyZPcOy5XfQgmYRNGU/oLaPKUM2fO+MzsqlvBJoymcuq/gL5+/brmKy5XPQtGYTVWAdBM44cPH/YNoKvuBaOwGqceBUBfvnxZj0lcrn9BsAqzofJAf/jwQQ4ePFh3s/PXr1+lra1Npk+fLm/fvs29Ozx04cIFGTFihBw4cCD3Tm2F//Aj/sSv1RY3QkaNGqU3RQZDsAqzsGvKA82txkoNuXfvnowfP16DkbqqCV+1gL5//74sWLBARo4cKePGjZPt27fLt2/fcp+mZcAVuwYKxnADmlvXzc3N2q/BEszCrikPNFN3pScbL168kG3btsnmzZulvb1dmpqapKWlRTZu3Kjv7dq1Sz5//pwrPTBVA+jnz5/LtGnTZP78+eoAYAbsvXv35kqkhT/oD9eqVat09pkxY0b+PUAcyIo23IAeChGjMO3IA81DIdxHz6paO6kaQBs4NnOYzevXr9fXlchWpSzfKScHeuCCWdg15YEm/+nPbFPMSd+/f9d78FOnTtWgjR49WpYvXy5Pnz7Nlfhf3MrctGmTpgGUmzhxos7wlg6kgOZv+B3aKLWZffz4cX4FoY/79++XsWPHyvnz53MlyqsY0Ni/du1a7V9DQ4MsWrSooI88dHPt2jVdHfica/HixfokmQG9b98+9T/LNZ+z6tkKF/afY6rW1lZdXSZNmvTX8eqjR4/Ux9hifiEGv3790s9Tsfr9+7euWrNnz9Z6aZ82bt26pZ+b7t69K3PnztUyxOjo0aPa1zAuDEzatYkDYRPlqBe78JWVxzc9PT35tvl8y5YtmTikLL4z5YHm8b3+PDWXchIOZEnGyKVLl+ohOCkKAM6aNUtTFsRfXvM+n1OO8nyP71NPDDQDZeXKlQpXR0eH3t9ft26dXLx4UetMiX7h7MbGRoVmwoQJcu7cuUz9TQFt9s+cOVNvyXKR2hCg169faxnySoKJ/Z2dnXLixAlZs2aNziwGNINt2bJlCgnQ8J6lQ9Z/gk0dBG/r1q36mrZIp9CdO3cUNPrGAKEdBhG+pO/0NY6V+YUylOU7fJc6qIs6EVBio8WJ4zLqwZ8WFxQDbTaxdyG22I4PiTHtX716VfvBAOdz6mUwG0eViD7ArqkmQPf29mpeTeBsdkDMFnSYjiOChjNPnz6trxHAElw6DkQWUHMcIJDHEgBLkbCbmaaYmDFx6pgxYwoGCwIyAlhu/5ACGvsJWLgpITD0kb+Wu4eDOJQBTX/pN7J2lixZoquU9R9/3rx5U8vQX1YbcnqgoC8M6rAMwj8MLnzHAItjZfbhm/DZY3JS6qYN2uJ5ZV4zCZh4nmLKlClFgTabaN/ihKiL1RE7AZzyDCRjjzhm4ZCySaCpvFophxnKchIqhIJgETQcarOZKXRMDLR1ADCZMXB6qWdOON0AOlKUL1++yM6dO3VmYWkDIgbdnDlzCo5+UoqBNvuxM3XRB2ADBIKYkgFtAxzF/oz7bwp9ZIOcpZ0+hsJemxziuklZ8CODOlRY7v3795rGxHFK2ZWyyfwRX5RhoqEMNgD+qVOn8gO7UhVNOaq5Kawl0AioWQaphyWLK27LxBJJmkEOiJg5mKGpf+HChWpPudMOFANtdpGnMrtjW3jxuQEbA2Oyz+sZ6Ddv3iTbp51SObTVQT7ObM7r8LLJEw5gj7SN78JElhMy+p7cFGY5tgtlhpuTkM1MzJ5hykHDGE3qgYAtXsoozxGZLeVxQFmSwjqxmbLMIqkVhpmZJS68788ssGHDBrVl3rx5OguVUww0Stkfyjaj8ZJuqhbQ9Jv+Y1+4OWbVITWzZT+u2+wDzBAifIXPyNXxt6U34fEY7dBeaFclNoX6+fNnQarBqkk78FOpih7bZbmxEip2EgKY1atX6+iPN4Vh7otDycPiTSEpwY4dO7SzcUC5eM0GAntxNu1QPiXbeNAO32ETyQxNmziP7xIIc2wxpYC2dMbsxx5mOwYRdlMnZ94EGftpn40fAxYfVAtoRD+xI94UsiFls4riurEPv+GDeFOIv4gPMh/SfzbilKEeBkNoV2wTp0h8z2zCP5xgkfYhVnL8SUxsQz158uRMjy1TZ/LGSn9vfcdOMrGUYDwBp5M4m0CHQUHkUaWOmuKAMpOQ91p56g+P+WIRtPDYjOBRF21QH0scdfG6FNQpoBFQs6xSN/YQEIJn9vOXuu34Ej8wCOlXNYFGHLWZLfSTmZlUzPoV141i+/AF8YiPHlmFOCqkDPXSbmxXbBPfI62hPPaY7y1FAHhrF5tTx4WlBKtFb30jpu5S57kul8ny9nBwDLZgNUw3UAHQ/vioq1Jx1MqMS55damWrlWAUVks+Por8AX9XLDZepGakFOxzSPlIEUj3SLmGQjBa9gF/5P+C5YrFTSHu5tm+hX3AihUr9Oh0KASbMFrRv2AhpnH/J1lXPSrzP8ma/GcMXPUmWITJzD9jYPIfmnHVg2APBgf0QzMm8hT/KTDXUAjWYA72qvJTYKEYGf5jja5aCYZgCaZgC8Zgreo/1hjLf07Xr1pcMDSoP6frcv0LcqBdw0gifwCcwL+TbvIcxAAAAABJRU5ErkJggg==" InformativeScreenshot="6b96113ce550a6b0870f4b9a11c20d4c.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* | LinkedIn' /&gt;" SearchSteps="Image, CV" Version="V2" Visibility="Interactive" />
-                                      </uix:NClick.Target>
-                                    </uix:NClick>
-                                    <uix:NCheckState DisplayName="Check App State 'Back Button'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="494,422" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
-                                      <uix:NCheckState.IfExists>
-                                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_20">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </Sequence>
-                                      </uix:NCheckState.IfExists>
-                                      <uix:NCheckState.IfNotExists>
-                                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,205" sap2010:WorkflowViewState.IdRef="Sequence_21">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                          <Throw Exception="[new SystemException(&quot;Skills page did not load&quot;)]" sap:VirtualizedContainerService.HintSize="388,90" sap2010:WorkflowViewState.IdRef="Throw_1" />
-                                        </Sequence>
-                                      </uix:NCheckState.IfNotExists>
-                                      <uix:NCheckState.Target>
-                                        <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/audriusg/details/skills/" CvType="Icon" DesignTimeRectangle="102, 216, 48, 48" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'BUTTON ember1159'" FullSelectorArgument="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] button[aria-label=&amp;quot;Back to the main profile page&amp;quot;]' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember1159' tag='BUTTON' type='button' class='artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--3 artdeco-button--tertiary ember-view' aaname='              ' /&gt;" Guid="36e5e2ba-cd3f-4633-a82d-7814e4159434" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJmSURBVGhD7ZhNrsIgFEbfSt2CDnULbsGpi3HoGpxq1IEaE2N4OU0gtL1tafkRiV/yJcYicORyL+VPFaYfUJ/e77d6Pp/qdrup6/WqzuezOp1O6ng8VuYz3/GMNrTlNyHlDcSEHo+HulwuZuJjzW/pIwTcZCAG51+WJuhj+vQBmwR0v9/FyYQ0Y0zRKKDX6+UVWmPNWIw5Rs5AbGBp0BRmbFc5AbFhpYFSmjm4aBAoBxhtF6heoE+GWZeHwq8TiM0odZiD+xJFJ1DKbDbWzK1LIlCKOuPrrjrVAqJKSx3kaOlE0QKKcZyJZebaVA3om1ZHu7lKNaCcao6rm7WpBhQisy2XSzWbzdR6vRafh3Yz4xmgEOG23W4rmPl8rg6Hg9gmhu2wM0C+p4L9fl/B4N1uJ7aJZfv0YIB8shursVqtKpjNZiO2iWk72xkg3vOlxi4GAhj2T8pQ02buWgaIywup8ZAJLx1qhJ3UJraZu5YBsm9nXM1qLBaLCoaEILVJYeauZYCkhkMmNevVCWVpHBdrlQs0NeSoOUwku5ArLimESNvUomzStm9h1We4bAprcUefkIdTalPK0BMPp6io1wdU3AteiLBLbTvcUA0I+WS71Lazm1YL6JtWqbk6qAWEirpo1AqR8WK5mdlsdQIVd1mPfE8PMWyfCiT1AqGcalOz5kgaBEI5QLnAICcg9MnwGwozW85AiM2YMvsxVl8CkDQKSCtFneqqM0OaBISo0jGOSfQpnQBcNRlIi8HZsD6hyG/pwwdEyxvIFhNiA/Mv857P5YV9m8RnvuMZbWgbAsJWUKAcVBiQUv/TKPKSKb1UDgAAAABJRU5ErkJggg==" InformativeScreenshot="728c86b73143e333b7bcb2aa16c4773d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Skills | Audrius Grigaliūnas | LinkedIn' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
-                                      </uix:NCheckState.Target>
-                                    </uix:NCheckState>
-                                    <ui:FindChildren Children="[SkillsElementsList]" DisplayName="Find Children" Filter="&lt;webctrl tag='LI' /&gt;" sap:VirtualizedContainerService.HintSize="494,87" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_CHILDREN">
-                                      <ui:FindChildren.Target>
-                                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="71774ab9-f3cd-4ed8-8fca-13050b9a43d2" Selector="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] div[id^=&amp;quot;ember&amp;quot;] div[class=&amp;quot;scaffold-finite-scroll__content&amp;quot;] ul[class=&amp;quot;pvs-list &amp;quot;]' idx='1' /&gt;" TimeoutMS="2000">
-                                          <ui:Target.WaitForReady>
-                                            <InArgument x:TypeArguments="ui:WaitForReady" />
-                                          </ui:Target.WaitForReady>
-                                        </ui:Target>
-                                      </ui:FindChildren.Target>
-                                    </ui:FindChildren>
-                                    <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="494,880" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[SkillsElementsList]">
-                                      <ui:ForEach.Body>
-                                        <ActivityAction x:TypeArguments="ui:UiElement">
+                                    <TryCatch.Try>
+                                      <Sequence DisplayName="Read Person Page" sap:VirtualizedContainerService.HintSize="555.5555555555555,2120.8888888888887" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                                        <Sequence.Variables>
+                                          <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
+                                          <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SkillsElementsList" />
+                                          <Variable x:TypeArguments="x:String" Name="TempPersonSkillsURL" />
+                                        </Sequence.Variables>
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Show all skills'" sap:VirtualizedContainerService.HintSize="493.3333333333333,158.22222222222223" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="3" Version="V3">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/vilmamaciunaite/" CvTextArgument="Show all 44 skills" CvType="Text" DesignTimeRectangle="78, 754, 804, 29" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Show all 44 skills'" FullSelectorArgument="&lt;webctrl css-selector='div[id=&amp;quot;skills&amp;quot;] ~ div[class=&amp;quot;pvs-list__outer-container&amp;quot;] &amp;gt; div[class=&amp;quot;pvs-list__footer-wrapper&amp;quot;]' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='                Show all 44 skills                              *' parentid='ember2175' tag='A' type='' class='optional-action-target-wrapper artdeco-button artdeco-button--tertiary artdeco-button--standard artdeco-button--2 artdeco-button--muted &amp;#xA;      inline-flex justify-center full-width align-items-center artdeco-button--fluid&amp;#xA;      &amp;#xA;      ' check:innerText='Show all 44 skills' /&gt;" Guid="3633fb48-5be0-4512-91f1-8d06fd9979e4" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAygAAAAtCAYAAABF0U/fAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAfpSURBVHhe7d3ni1PbGsfx+9f6ThQRe29YsYsdUbFgxYrYBVEUC/bKqDN3jjIexzo2dN3zfSZriJnkmB017ovfDzzMJNnZe2X75vnNWiv+583r3vSo40GSJEmSpN+FTEI2GQgoPT09lmVZlmVZlmVZv6UGBRRJkiRJ+l0MKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSZIkqTQMKJIkSZJKw4AiSb/Aixcv0qxZs9KKFStSX19f5dnyunz5choyZEg6cuRIPC7r+BkLY2JsjLGeS5cupVGjRqVDhw7F4/+XzyZJ6mdAkaQWfPjwIZ04cSIa3aFDh0YDPGHChHT27Nl4/U8MKKdOnYp7sXnz5sozg12/fj2NHDmy5fvSTEDhs4wbNy4dO3Zs4HE7A8ry5cvjetOnT688I0kqwoAiSQV9/vw5bdu2LZrQOXPmpC1btsTjdevWRWjBnxZQenp64l5wjkYBJYcLjmn1vuRz/FtAqdXugPLu3bs0duzYuOa+ffsqz0qSmmVAkaSCOjs705QpU9Lq1atjJqWePymgENi2b98eM0gjRoxoGFCOHj0ax/zqGZRa7Q4ouHv3blyT4ndJUvMMKJJU0NOnT2P5zuLFi9Pr168rz36rugmmQZ43b140q/zs6OioHNXvyZMnac2aNdG4c8yMGTNiJobGPzfkM2fOTM+fP4/j37x5E9dmDIwFeUw7d+6Mx7UY5549e9KkSZPiGqNHj067du1K79+/j9d/pIm/ePFiBDbGPH78+LoB5f79+2natGkRUpo5L9ffunVrjDPfk3v37tUNKFyfe7dhw4b09u3bQZ+lmc92586dtHTp0jRs2LAowifn+hHMnnBdZlOYVZEkNceAIkkFff36Ne3evTv2W9Donj9/PsJEtdwE05wSSmjMN27cGO9ZsmTJQPNL405omDhxYmzqPnPmTFq4cGEcR0PNtWh0mZlg/wZu374dm8Crn7t69WoaPnx4bBCv5+HDh7E34uTJkzFeAhHN84EDB+L1VgMK4588eXK878GDB3UDyrNnz9LcuXNjGRy/f++8zEqxXI5zHTx4MMbLvbty5cqggJLv38qVKwfuadGAQkAkYC1YsCDuP7V27do4rhHOV6S4liSpOQYUSWrBly9f0rlz5yJY0IDyk0aYQIHcBNM8P378OJ7LzTXHMotCqKHxHjNmTISOrLe3N0IN72fWJAeSw4cPx+s02rzOrELe48BPZlnyjEotxpvHhjzjQlD5+PFjSwElB48cDghBtQGF53md4zi+mfPy+WfPnh1Bjd/B2PkM1QGFpVOcN587KxpQCHcEQmaYuAZq71ctzlekCIeSpOYYUCTpB7BEir+4EzpYZsRyIzRqxGneaeJp5nMjTvNauwSo+rhXr16l+fPnR5ig4efn/v37Y3M+v7N8ixDAEqfamZyMWQkCFTMTBJm8nCyPr2hAqQ0eqA0ojIVZE0IaMx1oJqAQDPh8hAaWePE5u7q64jXew3u5Dpvyq8+dFQ0o3L9ly5bFMYQ+jvsZS7Jc4iVJrTGgSNJP0N3dHTMSOWz8zIBCw06TTrC4detWNObMqpw+fTquee3atfjJ43oICmxiJ5Ts2LEjGnaaeprxPL6iASWHEd7TqPjaYc5R77Vc+Xq1+MwsveI+MO4c/nJAmTp1auwTqQ6FWdGAAu4Rx7G3h2BUOytTlJvkJal1BhRJKujRo0fpwoULA8uBkJdl0eCyib2ZgMLSKmZAeMwG8IwZE5Y3cb68xInZD/acEDTYK8ExnIP9HyxN4ieP66k3lhww8nNFAwrNOxvymSHJtX79+hgjoYvHN2/eTHv37v3mmE2bNsWSNvZ8ELpYXlWL+1o9E8RyOGZKuFcvX76MMTE2vk2NWZzakFI0oHCt/G9JMOL/T+H4RoHvewibfs2wJLXOgCJJBeXmPv8fKIQO/qJfvbG9mYACNrmzjKl2kzzfJFXdIOc9IwQArsk18rd50Qg3ChLIS8S4DvtYOO+iRYuisc/vKxpQ6sn3hc/YSDPn5RheP378eARBPi/3li8m4D28xjk4jqDEbEf1Uq+iAYXN96tWrYoQSHH/uTcErFYwI8b1+NYySVJxBhRJKoh9J8wM0IDSiBImmNWonlVp1IjXBhRUf8UtjTgzJ8wIEEKyPNvC9WiiM2YxeO57f6m/ceNGjIdjOT9NefX4yhRQ2N/CfhpCAmMifHC/ue+8h/dyDs4F7hXH5mVZRQMK4+aecO8b3X9JUvsYUCRJkiSVhgFFkiRJUmkYUCRJkiSVhgFFkiRJUmkYUCRJkiSVhgFFkiRJUmkYUCRJkiSVxjcBpfNJR/r06VPlJUmSJElqH7IImWQgoPzV3fnPg1eVlyVJkiSpfcgi/ZmkElD+fv4sdXd3VV6WJEmSpPYhi5BJBgIK9d+ux86iSJIkSWorMkh/FunPJQMBpfdFT2xM6et7VzlUkiRJkn4dsgcZhCwyKKBQTKv07553JkWSJEnSr0PmIHvkpV25vgkoFOmFKRbWgfEmv91LkiRJ0s9AtiBjkDXIHNUzJ7kGBZRcJBl20vN1XyQby7Isy7Isy7KsHymyBRmjdtakuhoGFMuyLMuyLMuyrHaXAcWyLMuyLMuyrJJUb/ofYy6InwXNEVgAAAAASUVORK5CYII=" InformativeScreenshot="ad06cbd52b161d2099f3c4116cf5a0b3.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='(10) Vilma Mačiūnaitė-Uckevičienė | LinkedIn' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Tools &amp; Technologies'" sap:VirtualizedContainerService.HintSize="493.3333333333333,158.22222222222223" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Timeout="2" Version="V3">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/vilmamaciunaite/details/skills/" CvElementArea="329, 274, 181, 35" CvTextArea="341, 284, 154, 19" CvTextArgument="Tools &amp; Technologies" CvType="Button" DesignTimeRectangle="1145, 612, 407, 79" DesignTimeScaleFactor="2.25" ElementType="Button" FriendlyName="'Tools &amp; Technologies'" FullSelectorArgument="&lt;webctrl id='ember2377' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember2377' tag='BUTTON' type='button' class='ml2 white-space-nowrap artdeco-pill artdeco-pill--slate artdeco-pill--3 artdeco-pill--choice ember-view' aaname='  Tools &amp;amp; Technologies ' check:innerText='Tools &amp;amp; Technologies' /&gt;" Guid="76f7034a-b180-434a-8458-81fc5c177bde" ImageBase64="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" InformativeScreenshot="2e3fe092344d0b4da154b97d20fa1db2.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* | LinkedIn' /&gt;" SearchSteps="CV" Version="V2" Visibility="Interactive" />
+                                          </uix:NClick.Target>
+                                        </uix:NClick>
+                                        <uix:NCheckState DisplayName="Check App State 'Back Button'" EnableIfExists="False" sap:VirtualizedContainerService.HintSize="493.3333333333333,425.77777777777777" sap2010:WorkflowViewState.IdRef="NCheckState_4" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                                          <uix:NCheckState.IfExists>
+                                            <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,105" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </uix:NCheckState.IfExists>
+                                          <uix:NCheckState.IfNotExists>
+                                            <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="449.77777777777777,206.22222222222223" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <Throw Exception="[new SystemException(&quot;Skills page did not load&quot;)]" sap:VirtualizedContainerService.HintSize="387.55555555555554,91.11111111111111" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                                            </Sequence>
+                                          </uix:NCheckState.IfNotExists>
+                                          <uix:NCheckState.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/in/audriusg/details/skills/" CvType="Icon" DesignTimeRectangle="102, 216, 48, 48" DesignTimeScaleFactor="1" ElementType="Button" FriendlyName="'BUTTON ember1159'" FullSelectorArgument="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] button[aria-label=&amp;quot;Back to the main profile page&amp;quot;]' /&gt;" FuzzySelectorArgument="&lt;webctrl id='ember1159' tag='BUTTON' type='button' class='artdeco-button artdeco-button--circle artdeco-button--muted artdeco-button--3 artdeco-button--tertiary ember-view' aaname='              ' /&gt;" Guid="36e5e2ba-cd3f-4633-a82d-7814e4159434" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJmSURBVGhD7ZhNrsIgFEbfSt2CDnULbsGpi3HoGpxq1IEaE2N4OU0gtL1tafkRiV/yJcYicORyL+VPFaYfUJ/e77d6Pp/qdrup6/WqzuezOp1O6ng8VuYz3/GMNrTlNyHlDcSEHo+HulwuZuJjzW/pIwTcZCAG51+WJuhj+vQBmwR0v9/FyYQ0Y0zRKKDX6+UVWmPNWIw5Rs5AbGBp0BRmbFc5AbFhpYFSmjm4aBAoBxhtF6heoE+GWZeHwq8TiM0odZiD+xJFJ1DKbDbWzK1LIlCKOuPrrjrVAqJKSx3kaOlE0QKKcZyJZebaVA3om1ZHu7lKNaCcao6rm7WpBhQisy2XSzWbzdR6vRafh3Yz4xmgEOG23W4rmPl8rg6Hg9gmhu2wM0C+p4L9fl/B4N1uJ7aJZfv0YIB8shursVqtKpjNZiO2iWk72xkg3vOlxi4GAhj2T8pQ02buWgaIywup8ZAJLx1qhJ3UJraZu5YBsm9nXM1qLBaLCoaEILVJYeauZYCkhkMmNevVCWVpHBdrlQs0NeSoOUwku5ArLimESNvUomzStm9h1We4bAprcUefkIdTalPK0BMPp6io1wdU3AteiLBLbTvcUA0I+WS71Lazm1YL6JtWqbk6qAWEirpo1AqR8WK5mdlsdQIVd1mPfE8PMWyfCiT1AqGcalOz5kgaBEI5QLnAICcg9MnwGwozW85AiM2YMvsxVl8CkDQKSCtFneqqM0OaBISo0jGOSfQpnQBcNRlIi8HZsD6hyG/pwwdEyxvIFhNiA/Mv857P5YV9m8RnvuMZbWgbAsJWUKAcVBiQUv/TKPKSKb1UDgAAAABJRU5ErkJggg==" InformativeScreenshot="728c86b73143e333b7bcb2aa16c4773d.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Skills | Audrius Grigaliūnas | LinkedIn' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+                                          </uix:NCheckState.Target>
+                                        </uix:NCheckState>
+                                        <uix:NGetUrl CurrentUrl="[TempPersonSkillsURL]" DisplayName="Get Person Skills Page URL" sap:VirtualizedContainerService.HintSize="493.3333333333333,88" sap2010:WorkflowViewState.IdRef="NGetUrl_1" Version="V3" />
+                                        <ui:FindChildren Children="[SkillsElementsList]" DisplayName="Find Children" Filter="&lt;webctrl tag='LI' /&gt;" sap:VirtualizedContainerService.HintSize="493.3333333333333,86.66666666666667" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_CHILDREN">
+                                          <ui:FindChildren.Target>
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="71774ab9-f3cd-4ed8-8fca-13050b9a43d2" Selector="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] div[id^=&amp;quot;ember&amp;quot;] div[class=&amp;quot;scaffold-finite-scroll__content&amp;quot;] ul[class=&amp;quot;pvs-list &amp;quot;]' idx='1' /&gt;" TimeoutMS="2000">
+                                              <ui:Target.WaitForReady>
+                                                <InArgument x:TypeArguments="ui:WaitForReady" />
+                                              </ui:Target.WaitForReady>
+                                            </ui:Target>
+                                          </ui:FindChildren.Target>
+                                        </ui:FindChildren>
+                                        <ui:ForEach x:TypeArguments="ui:UiElement" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="493.3333333333333,892.4444444444445" sap2010:WorkflowViewState.IdRef="ForEach`1_4" Values="[SkillsElementsList]">
+                                          <ui:ForEach.Body>
+                                            <ActivityAction x:TypeArguments="ui:UiElement">
+                                              <ActivityAction.Argument>
+                                                <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentItem" />
+                                              </ActivityAction.Argument>
+                                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376.8888888888889,719.5555555555555" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                                <Sequence.Variables>
+                                                  <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SkillTopicElements" />
+                                                  <Variable x:TypeArguments="x:String" Name="SkillTopic" />
+                                                </Sequence.Variables>
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                                <ui:FindChildren Children="[SkillTopicElements]" DisplayName="Find Children" Filter="&lt;webctrl css-selector='a[data-field=&amp;quot;skill_page_skill_topic&amp;quot;] div span span[aria-hidden=&amp;quot;true&amp;quot;]' /&gt;" sap:VirtualizedContainerService.HintSize="334.22222222222223,86.66666666666667" sap2010:WorkflowViewState.IdRef="FindChildren_4" Scope="FIND_DESCENDANTS">
+                                                  <ui:FindChildren.Target>
+                                                    <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[currentItem]" Id="3a7c197b-cb02-4493-b682-559270bf19a3">
+                                                      <ui:Target.TimeoutMS>
+                                                        <InArgument x:TypeArguments="x:Int32" />
+                                                      </ui:Target.TimeoutMS>
+                                                      <ui:Target.WaitForReady>
+                                                        <InArgument x:TypeArguments="ui:WaitForReady" />
+                                                      </ui:Target.WaitForReady>
+                                                    </ui:Target>
+                                                  </ui:FindChildren.Target>
+                                                </ui:FindChildren>
+                                                <uix:NGetText DisplayName="Get Skill Topic Text" sap:VirtualizedContainerService.HintSize="334.22222222222223,139.11111111111111" sap2010:WorkflowViewState.IdRef="NGetText_2" InUiElement="[SkillTopicElements.First]" TextString="[SkillTopic]" Version="V3" />
+                                                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;name&quot;), SkillTopic, TempPersonSkillsURL}]" DataTable="[io_ReportData]" DisplayName="Add Row To ReportData" sap:VirtualizedContainerService.HintSize="334.22222222222223,189.77777777777777" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334.22222222222223,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[SkillTopic]" />
+                                              </Sequence>
+                                            </ActivityAction>
+                                          </ui:ForEach.Body>
+                                        </ui:ForEach>
+                                      </Sequence>
+                                    </TryCatch.Try>
+                                    <TryCatch.Catches>
+                                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="559.1111111111111,22.666666666666668" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ActivityAction x:TypeArguments="s:Exception">
                                           <ActivityAction.Argument>
-                                            <DelegateInArgument x:TypeArguments="ui:UiElement" Name="currentItem" />
+                                            <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                                           </ActivityAction.Argument>
-                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,710" sap2010:WorkflowViewState.IdRef="Sequence_19">
-                                            <Sequence.Variables>
-                                              <Variable x:TypeArguments="scg:IEnumerable(ui:UiElement)" Name="SkillTopicElements" />
-                                              <Variable x:TypeArguments="x:String" Name="SkillTopic" />
-                                            </Sequence.Variables>
+                                          <Sequence sap:VirtualizedContainerService.HintSize="449.77777777777777,563.1111111111111" sap2010:WorkflowViewState.IdRef="Sequence_23">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <ui:FindChildren Children="[SkillTopicElements]" DisplayName="Find Children" Filter="&lt;webctrl css-selector='a[data-field=&amp;quot;skill_page_skill_topic&amp;quot;] div span span[aria-hidden=&amp;quot;true&amp;quot;]' /&gt;" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="FindChildren_4" Scope="FIND_DESCENDANTS">
-                                              <ui:FindChildren.Target>
-                                                <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" Element="[currentItem]" Id="3a7c197b-cb02-4493-b682-559270bf19a3">
-                                                  <ui:Target.TimeoutMS>
-                                                    <InArgument x:TypeArguments="x:Int32" />
-                                                  </ui:Target.TimeoutMS>
-                                                  <ui:Target.WaitForReady>
-                                                    <InArgument x:TypeArguments="ui:WaitForReady" />
-                                                  </ui:Target.WaitForReady>
-                                                </ui:Target>
-                                              </ui:FindChildren.Target>
-                                            </ui:FindChildren>
-                                            <uix:NGetText DisplayName="Get Skill Topic Text" sap:VirtualizedContainerService.HintSize="334,137" sap2010:WorkflowViewState.IdRef="NGetText_2" InUiElement="[SkillTopicElements.First]" TextString="[SkillTopic]" Version="V3" />
-                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;name&quot;), SkillTopic}]" DataTable="[io_ReportData]" DisplayName="Add Row To ReportData" sap:VirtualizedContainerService.HintSize="334,186" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,92" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[SkillTopic]" />
+                                            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="387.55555555555554,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Failed to read Persons Page or Skills&quot;]" />
+                                            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem.SpecificContent(&quot;name&quot;), &quot;Failed to read&quot;, &quot;Failed to read&quot;}]" DataTable="[io_ReportData]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="387.55555555555554,189.77777777777777" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
+                                            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="387.55555555555554,86.66666666666667" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Robot failed to read data because it does not exist or is in unknown format. Press OK to continue&quot;]" TopMost="True" />
                                           </Sequence>
                                         </ActivityAction>
-                                      </ui:ForEach.Body>
-                                    </ui:ForEach>
-                                  </Sequence>
+                                      </Catch>
+                                    </TryCatch.Catches>
+                                  </TryCatch>
                                 </FlowStep>
                                 <FlowStep x:Key="False" x:Name="__ReferenceID1">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">360,534</av:Point>
                                       <av:Size x:Key="ShapeSize">200,53.333333333333336</av:Size>
-                                      <av:PointCollection x:Key="ConnectorLocation">360,560 272.75,560 272.75,523.5</av:PointCollection>
+                                      <av:PointCollection x:Key="ConnectorLocation">360,560.6666666666666 273,560.6666666666666 273,523.6111111111111</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <ui:InputDialog Options="{x:Null}" DisplayName="Input for Not Selected Result" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="InputDialog_6" IsPassword="False" Label="Person profile page not detected. Please select one of these options to continue" OptionsString="Stop RPA and generate report;Continue with another name;Select a person from current search results" Title="Please select">
@@ -641,7 +682,7 @@
                       <av:PointCollection x:Key="ConnectorLocation">860,277.3333333333333 860,489.5</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'audrius grigaliunas'" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Person In Search Results" sap:VirtualizedContainerService.HintSize="200,53.333333333333336" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="d3f7dea7-7c69-41f1-bdc1-60a4630eb0b5" Version="V3">
                     <uix:NClick.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.linkedin.com/search/results/people/?keywords=audrius%20grigaliunas&amp;origin=SWITCH_SEARCH_VERTICAL&amp;sid=*%40J" CvTextArgument="audrius grigaliunas ." CvType="Text" DesignTimeRectangle="443, 363, 138, 21" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'audrius grigaliunas'" FullSelectorArgument="&lt;webctrl aaname='audrius grigaliunas' tag='SPAN' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl aaname='&quot; + in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.Trim +&quot;' tag='SPAN' type='' class='' check:innerText='&quot; + in_TransactionItem.SpecificContent(&quot;name&quot;).ToString.Trim +&quot;' /&gt;&quot;]" Guid="435feaa0-1325-4e1c-8d1f-9c2cadae231b" ImageBase64="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" InformativeScreenshot="0e8fd59f84eb9b7eb171d11627630233.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='* | Search | LinkedIn' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive" />
                     </uix:NClick.Target>
