@@ -330,7 +330,7 @@
               </TryCatch.Catches>
             </TryCatch>
             <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="994.6666666666666,95.11111111111111" sap2010:WorkflowViewState.IdRef="LogMessage_8" Level="Info" Message="[&quot;People search completed&quot;]" />
-            <Flowchart sap2010:Annotation.AnnotationText="This flowchart manages how RPA should act on different search results scenarios. When only one result is found ir progresses automatically, but when 0 or &gt;1 is found, then it asks for user input" sap:VirtualizedContainerService.HintSize="994.6666666666666,180.44444444444446" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+            <Flowchart sap2010:Annotation.AnnotationText="This flowchart manages how RPA should act on different search results scenarios. When only one result is found ir progresses automatically, but when 0 or &gt;1 is found, then it asks for user input" sap:VirtualizedContainerService.HintSize="1165.3333333333333,991.1111111111111" sap2010:WorkflowViewState.IdRef="Flowchart_1">
               <Flowchart.Variables>
                 <Variable x:TypeArguments="x:String" Name="CurrentURL" />
                 <Variable x:TypeArguments="x:Boolean" Name="ProfilePageOpen" />
@@ -523,7 +523,7 @@
                                       <av:Size x:Key="ShapeSize">200,196.88888888888889</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <TryCatch sap2010:Annotation.AnnotationText="The Skills Page greatly varies with different persons skills set, so for easier management all cases where reading of &quot;tools &amp; techonologies&quot; skills is not possible, RPA will catch this error as one and will not differenciate." DisplayName="Try To Read Person Page" sap:VirtualizedContainerService.HintSize="200,196.88888888888889" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                                  <TryCatch sap2010:Annotation.AnnotationText="The Skills Page greatly varies with different persons skills set, so for easier management all cases where reading of &quot;tools &amp; techonologies&quot; skills is not possible, RPA will catch this error as one and will not differenciate." DisplayName="Try To Read Person Page" sap:VirtualizedContainerService.HintSize="592.8888888888889,2416.4444444444443" sap2010:WorkflowViewState.IdRef="TryCatch_2">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -578,7 +578,7 @@
                                         <uix:NGetUrl CurrentUrl="[TempPersonSkillsURL]" DisplayName="Get Person Skills Page URL" sap:VirtualizedContainerService.HintSize="493.3333333333333,88" sap2010:WorkflowViewState.IdRef="NGetUrl_1" Version="V3" />
                                         <ui:FindChildren Children="[SkillsElementsList]" DisplayName="Find Children" Filter="&lt;webctrl tag='LI' /&gt;" sap:VirtualizedContainerService.HintSize="493.3333333333333,86.66666666666667" sap2010:WorkflowViewState.IdRef="FindChildren_3" Scope="FIND_CHILDREN">
                                           <ui:FindChildren.Target>
-                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="71774ab9-f3cd-4ed8-8fca-13050b9a43d2" Selector="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] div[id^=&amp;quot;ember&amp;quot;] div[class=&amp;quot;scaffold-finite-scroll__content&amp;quot;] ul[class=&amp;quot;pvs-list &amp;quot;]' idx='1' /&gt;" TimeoutMS="2000">
+                                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="71774ab9-f3cd-4ed8-8fca-13050b9a43d2" Selector="&lt;webctrl css-selector='main[class^=&amp;quot;scaffold-layout__main&amp;quot;] div[id^=&amp;quot;ember&amp;quot;][role=&amp;quot;tabpanel&amp;quot;][class~=&amp;quot;active&amp;quot;] div[class=&amp;quot;scaffold-finite-scroll__content&amp;quot;] ul[class=&amp;quot;pvs-list &amp;quot;]' idx='1' /&gt;" TimeoutMS="2000">
                                               <ui:Target.WaitForReady>
                                                 <InArgument x:TypeArguments="ui:WaitForReady" />
                                               </ui:Target.WaitForReady>
